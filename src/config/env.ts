@@ -1,0 +1,1 @@
+export const WEATHER_API_KEY : string = import.meta.env.VITE_WEATHER_API;
