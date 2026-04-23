@@ -17,8 +17,11 @@ export default function Searchbar({onSearch} : Props) {
     return (
         <form onSubmit={handleSubmit}>
         <input
+            type="search"
         value={input}
-        onChange={(e) => {setInput(e.target.value)}} />
+        onChange={(e) => {setInput(e.target.value)}}
+            className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50"/>
+
 
         </form>
     )
