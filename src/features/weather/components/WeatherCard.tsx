@@ -1,6 +1,12 @@
+/*
+export default function WeatherCard({weatherData}) {
 
-export default function WeatherCard() {
     return(
+        <div>
         <div>WeatherCard</div>
+            <p>{weatherWind.speed}</p>
+        </div>
     )
 }
+
+ */
