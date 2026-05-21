@@ -5,8 +5,7 @@ type Props = {
     location: GeoLocation;
 };
 
-export default function WeatherCard({data, location}: Props) {    const displayName =
-        location.local_names?.de || location.name;
+export default function WeatherCard({data, location}: Props) {    
     const icon = data?.weather?.[0]?.icon;
     const now = new Date();
     const date = now.toLocaleDateString("de-DE", {
@@ -20,9 +19,18 @@ export default function WeatherCard({data, location}: Props) {    const displayN
         hour: "2-digit",
         minute: "2-digit",
     })
+
+    const displayName = location.local_names?.de || location.name;
+
+const locationLabel = [
+    displayName,
+    location.state,
+    location.country
+].filter(Boolean).join(", ");
+
     return(
         <div className="w-full max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-            <p className="text-xl font-semibold">{displayName + ", " + location.country}</p>
+            <p className="text-xl font-semibold">    {locationLabel}</p>
             <p className="mt-1 text-white/70">{date + " - " + time}</p>
             <img
                 className="mx-auto mt-4"

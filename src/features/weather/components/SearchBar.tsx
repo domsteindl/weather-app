@@ -6,10 +6,10 @@ import type {GeoLocation} from "../types.ts";
 import { Search } from "lucide-react";
 
 
-{/* https://api.openweathermap.org/geo/1.0/direct?q={city}&appid=848273ef355b2f00114d6d67927fcfee */}
+
 
 type Props = {
-    onSearch: (city: string) => void;
+    onSearch: (location: GeoLocation) => void;
 };
 
 export default function Searchbar({onSearch} : Props) {
@@ -30,7 +30,9 @@ export default function Searchbar({onSearch} : Props) {
 
     const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
-        onSearch(input)
+        if (!suggestions || suggestions.length === 0) return;
+
+        onSearch(suggestions[0]);
     };
     return (
         <form onSubmit={handleSubmit} className="w-full">
@@ -72,7 +74,7 @@ export default function Searchbar({onSearch} : Props) {
                                 type="button"
                                 key={`${place.lat}-${place.lon}`}
                                 onClick={() => {
-                                    onSearch(place.name); // oder besser: location speichern
+                                    onSearch(place); // oder besser: location speichern
                                     setIsOpen(false);
                                     setInput(place.name);
                                 }}
