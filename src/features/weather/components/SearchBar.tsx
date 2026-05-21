@@ -31,8 +31,8 @@ export default function Searchbar({onSearch} : Props) {
         onSearch(input)
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="relative">
+        <form onSubmit={handleSubmit} className="w-full">
+            <div className="relative w-full">
             <input
                 type="search"
                 value={input}
@@ -40,7 +40,7 @@ export default function Searchbar({onSearch} : Props) {
                     setInput(e.target.value)
                     setIsOpen(true);
                 }}
-                className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50"/>
+                className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50"/>
 
                 {isOpen && suggestions && suggestions.length > 0 && (
                     <div

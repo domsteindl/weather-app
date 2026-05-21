@@ -56,31 +56,30 @@ export default function App() {
       <main className="min-h-screen bg-[#0b1220] text-white">
     <div className="mx-auto max-w-3xl">
         {/* HEADER */}
-        <header className="p-6">
+        <header className="flex flex-col items-center p-6 text-center">
 
           <h1 className="text-3xl font-semibold">Weather</h1>
-            <h4>Get real-time weather updates</h4>
-          {/* SearchBar */}
-            {!city && <p>Stadt suchen...</p>}
+            <h4 className="mt-1 text-white/70">Get real-time weather updates</h4>
 
-
+            <div className="mt-6 w-full max-w-md">
+            {!city && <p className="mb-2">Stadt suchen...</p>}
 
             <Searchbar onSearch={setCity} />
-            {city && isPending && <p>Loading...</p>}
+            {city && isPending && <p className="mt-2">Loading...</p>}
 
-            {error && <p>Error: {error.message}</p>}
+            {error && <p className="mt-2">Error: {error.message}</p>}
             {data && data.length === 0 && !isPending && (
-                <p>Keine Stadt gefunden.</p>
+                <p className="mt-2">Keine Stadt gefunden.</p>
             )}
+            </div>
 
         </header>
 
         {/* MAIN CONTENT */}
-        <section className="p-6">
+        <section className="flex flex-col items-center p-6">
             {weatherData &&  location && (
-                <>
-                    <MainArea data={weatherData} location={location} />
-                </> )}
+                <MainArea data={weatherData} location={location} />
+            )}
 
 
             {/* WeatherCard */}

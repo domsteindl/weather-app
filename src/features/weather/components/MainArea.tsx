@@ -8,9 +8,10 @@ type Props = {
 };
 
 export default function MainArea({data, location}: Props) {
-    return (<section className={"flex flex-col gap-7"}>
+    return (
+        <section className="flex w-full flex-col items-center gap-7">
             <WeatherCard data={data} location={location}/>
             <DetailsArea weatherData={data}/>
         </section>
-    )
+    );
 }

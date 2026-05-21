@@ -21,15 +21,16 @@ export default function WeatherCard({data, location}: Props) {    const displayN
         minute: "2-digit",
     })
     return(
-        <div className={"border rounded-lg max-w-2xl"}>
-            <p>{displayName + ", " + location.country}</p>
-            <p>{date + " - " + time}</p>
+        <div className="w-full max-w-md rounded-lg border p-6 text-center">
+            <p className="text-xl font-semibold">{displayName + ", " + location.country}</p>
+            <p className="mt-1 text-white/70">{date + " - " + time}</p>
             <img
+                className="mx-auto mt-4"
                 src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
                 alt="weather icon"
             />
-            <p>{data.weather[0].description}</p>
-            <p>{`Feels like  ${Math.floor(data.main.feels_like)}°C`}</p>
+            <p className="mt-2 capitalize">{data.weather[0].description}</p>
+            <p className="mt-1 text-2xl">{`Feels like ${Math.floor(data.main.feels_like)}°C`}</p>
         </div>
     )
 }
