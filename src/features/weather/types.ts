@@ -1,5 +1,6 @@
 export type GeoLocation = {
     name: string;
+    state?: string;
     lat: number;
     lon: number;
     country: string;

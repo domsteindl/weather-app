@@ -78,7 +78,8 @@ export default function Searchbar({onSearch} : Props) {
                                 }}
                                 className="block w-full text-left px-4 py-2 hover:bg-white/10"
                             >
-                                {place.local_names?.de || place.name}, {place.country}
+                                {place.name}
+                                {place.state ? `, ${place.state}` : ""}, {place.country}
                             </button>
                         ))}
                     </div>
