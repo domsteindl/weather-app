@@ -6,7 +6,7 @@ type Props = {
 
 export default function ForecastCard({forecast}: Props) {
     return (
-        <div className="flex w-28 flex-col items-center rounded-lg border bg-white/10 p-4 text-center">
+        <div className="flex min-w-[140px] flex-1 flex-col items-center rounded-xl border border-white/10 bg-white/5 p-4 text-center">
             <p className="font-medium">{forecast.label}</p>
             <img
                 className="mt-2"

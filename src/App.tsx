@@ -53,7 +53,7 @@ export default function App() {
 
 
       <main className="min-h-screen bg-[#0b1220] text-white">
-    <div className="mx-auto max-w-3xl">
+   <div className="mx-auto w-full max-w-6xl px-6">
         {/* HEADER */}
         <header className="flex flex-col items-center p-6 text-center">
 

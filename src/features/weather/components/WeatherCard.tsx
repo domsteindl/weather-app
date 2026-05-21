@@ -21,7 +21,7 @@ export default function WeatherCard({data, location}: Props) {    const displayN
         minute: "2-digit",
     })
     return(
-        <div className="w-full max-w-md rounded-lg border p-6 text-center">
+        <div className="w-full max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
             <p className="text-xl font-semibold">{displayName + ", " + location.country}</p>
             <p className="mt-1 text-white/70">{date + " - " + time}</p>
             <img

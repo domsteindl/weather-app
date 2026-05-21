@@ -7,7 +7,7 @@ type Props = {
 export default function DetailsArea({weatherData} : Props) {
 
     return (
-        <div className="flex w-full max-w-md flex-wrap justify-center gap-4 text-center">
+<div className="grid w-full grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <DetailCard title="Luftfeuchtigkeit" value={`${weatherData.main.humidity} %`} />
 
         <DetailCard title="Wind" value={`${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`} />
