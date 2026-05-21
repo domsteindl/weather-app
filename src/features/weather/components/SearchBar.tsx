@@ -3,6 +3,8 @@ import type { SubmitEventHandler } from "react";
 import {useQuery} from "@tanstack/react-query";
 import {WEATHER_API_KEY} from "../../../config/env.ts";
 import type {GeoLocation} from "../types.ts";
+import { Search } from "lucide-react";
+
 
 {/* https://api.openweathermap.org/geo/1.0/direct?q={city}&appid=848273ef355b2f00114d6d67927fcfee */}
 
@@ -33,14 +35,34 @@ export default function Searchbar({onSearch} : Props) {
     return (
         <form onSubmit={handleSubmit} className="w-full">
             <div className="relative w-full">
+        <Search
+        size={18}
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50"
+    />
+
             <input
                 type="search"
+                placeholder="Stadt suchen..."
                 value={input}
                 onChange={(e) => {
                     setInput(e.target.value)
                     setIsOpen(true);
                 }}
-                className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50"/>
+                className="
+            w-full
+            rounded-lg
+            border
+            border-white/20
+            bg-white/10
+            py-2
+            pl-10
+            pr-4
+            text-white
+            placeholder:text-white/50
+            focus:outline-none
+            focus:ring-2
+            focus:ring-white/20
+        "/>
 
                 {isOpen && suggestions && suggestions.length > 0 && (
                     <div
