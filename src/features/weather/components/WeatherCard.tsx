@@ -27,10 +27,11 @@ export default function WeatherCard({data, location}: Props) {    const displayN
             <img
                 className="mx-auto mt-4"
                 src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-                alt="weather icon"
+                alt="Wetter-Symbol"
             />
             <p className="mt-2 capitalize">{data.weather[0].description}</p>
-            <p className="mt-1 text-2xl">{`Feels like ${Math.floor(data.main.feels_like)}°C`}</p>
+            <p className="mt-1 text-3xl font-semibold">{Math.round(data.main.temp)}°C</p>
+            <p className="mt-1 text-white/70">Gefühlt {Math.round(data.main.feels_like)}°C</p>
         </div>
     )
 }

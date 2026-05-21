@@ -14,6 +14,7 @@ export type CurrentWeather = {
         description: string;
     }>;
     main: {
+        temp: number;
         feels_like: number;
         humidity: number;
         pressure: number;

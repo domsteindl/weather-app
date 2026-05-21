@@ -8,13 +8,13 @@ export default function DetailsArea({weatherData} : Props) {
 
     return (
         <div className="flex w-full max-w-md flex-wrap justify-center gap-4 text-center">
-        <DetailCard title="Humidity" value={`${weatherData.main.humidity}%`} />
+        <DetailCard title="Luftfeuchtigkeit" value={`${weatherData.main.humidity} %`} />
 
-    <DetailCard title="Wind" value={`${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`} />
+        <DetailCard title="Wind" value={`${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`} />
 
-    <DetailCard title="Pressure" value={`${weatherData.main.pressure} hPa`} />
+        <DetailCard title="Luftdruck" value={`${weatherData.main.pressure} hPa`} />
 
-    <DetailCard title="Visibility" value={`${weatherData.visibility / 1000} km`} />
+        <DetailCard title="Sichtweite" value={`${(weatherData.visibility / 1000).toFixed(1)} km`} />
         </div>
     )
 }

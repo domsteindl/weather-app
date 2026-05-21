@@ -30,7 +30,7 @@ export default function App() {
         queryKey: ["weather", lat, lon],
         queryFn: async () => {
             const res = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric&lang=de`
             );
             return res.json() as Promise<CurrentWeather>;
         },
@@ -41,7 +41,7 @@ export default function App() {
         queryKey: ["forecast", lat, lon],
         queryFn: async () => {
             const res = await fetch(
-                `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+                `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric&lang=de`
             );
             return res.json() as Promise<ForecastResponse>;
         },
