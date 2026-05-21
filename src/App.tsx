@@ -3,7 +3,8 @@ import {WEATHER_API_KEY} from "./config/env.ts";
 import Searchbar from "./features/weather/components/SearchBar.tsx";
 import {useState} from "react";
 import MainArea from "./features/weather/components/MainArea.tsx";
-import type {CurrentWeather, GeoLocation} from "./features/weather/types.ts";
+import ForecastArea from "./features/weather/components/ForecastArea.tsx";
+import type {CurrentWeather, ForecastResponse, GeoLocation} from "./features/weather/types.ts";
 
 
 export default function App() {
@@ -36,18 +37,16 @@ export default function App() {
         enabled: !!lat && !!lon,
     });
 
-    { /*
-    const { data: forecastData } = useQuery({
+    const {data: forecastData} = useQuery<ForecastResponse>({
         queryKey: ["forecast", lat, lon],
         queryFn: async () => {
             const res = await fetch(
                 `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
             );
-            return res.json();
+            return res.json() as Promise<ForecastResponse>;
         },
         enabled: !!lat && !!lon,
     });
-    */ }
 
   return (
 
@@ -85,9 +84,12 @@ export default function App() {
             {/* WeatherCard */}
         </section>
 
-        <section className="p-6">
-          {/* Forecast */}
-        </section>
+        {forecastData && (
+            <section className="flex flex-col items-center p-6">
+                <h2 className="mb-4 text-lg font-semibold">5-Tage-Vorhersage</h2>
+                <ForecastArea forecastData={forecastData} />
+            </section>
+        )}
 
         {/* FOOTER */}
         <footer className="p-6 text-white/50 text-sm">

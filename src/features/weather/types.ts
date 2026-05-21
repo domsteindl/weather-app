@@ -23,3 +23,26 @@ export type CurrentWeather = {
     };
     visibility: number;
 };
+
+export type ForecastItem = {
+    dt: number;
+    dt_txt: string;
+    main: {
+        temp: number;
+        feels_like: number;
+    };
+    weather: Array<{
+        icon: string;
+    }>;
+};
+
+export type ForecastResponse = {
+    list: ForecastItem[];
+};
+
+export type DailyForecast = {
+    label: string;
+    temp: number;
+    feelsLike: number;
+    icon: string;
+};
