@@ -1,16 +1,8 @@
 import DetailCard from "./DetailCard.tsx";
+import type {CurrentWeather} from "../types.ts";
 
-type Props =  {
-    weatherData: {
-        main: {
-            humidity: number;
-            pressure: number;
-        };
-        wind: {
-            speed: number;
-        };
-        visibility: number;
-    }
+type Props = {
+    weatherData: CurrentWeather;
 };
 export default function DetailsArea({weatherData} : Props) {
 

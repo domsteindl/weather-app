@@ -2,6 +2,7 @@ import {useState} from "react";
 import type { SubmitEventHandler } from "react";
 import {useQuery} from "@tanstack/react-query";
 import {WEATHER_API_KEY} from "../../../config/env.ts";
+import type {GeoLocation} from "../types.ts";
 
 {/* https://api.openweathermap.org/geo/1.0/direct?q={city}&appid=848273ef355b2f00114d6d67927fcfee */}
 
@@ -13,14 +14,14 @@ export default function Searchbar({onSearch} : Props) {
     const [input, setInput] = useState("");
     const [isOpen, setIsOpen] = useState(false);
 
-    const { data: suggestions } = useQuery({
+    const { data: suggestions } = useQuery<GeoLocation[]>({
         queryKey: ["suggestions", input],
         queryFn: async () => {
             const res = await fetch(
                 `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${WEATHER_API_KEY}`
             );
 
-            return res.json();
+            return res.json() as Promise<GeoLocation[]>;
         },
         enabled: input.length >= 3,
     });

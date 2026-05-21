@@ -1,6 +1,11 @@
+import type {CurrentWeather, GeoLocation} from "../types.ts";
 
-export default function WeatherCard({data, location}) {
-    const displayName =
+type Props = {
+    data: CurrentWeather;
+    location: GeoLocation;
+};
+
+export default function WeatherCard({data, location}: Props) {    const displayName =
         location.local_names?.de || location.name;
     const icon = data?.weather?.[0]?.icon;
     const now = new Date();
@@ -16,7 +21,7 @@ export default function WeatherCard({data, location}) {
         minute: "2-digit",
     })
     return(
-        <div className={"border rounded-lg"}>
+        <div className={"border rounded-lg max-w-2xl"}>
             <p>{displayName + ", " + location.country}</p>
             <p>{date + " - " + time}</p>
             <img
